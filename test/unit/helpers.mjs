@@ -50,3 +50,13 @@ export function themeTokens(css) {
   const light = parse(blocks[0]);
   return { light, dark: { ...light, ...parse(blocks[1]) } };
 }
+
+export const LINKEDIN = 'https://www.linkedin.com/in/riccardocambiassi/';
+
+export const STATUTORY = [
+  'ChaosCafe Ltd',
+  'Registered in England and Wales',
+  'Company no. 08162326',
+  'Registered office: Devonshire House, 582 Honeypot Lane, Stanmore, Middlesex, HA7 1JS, United Kingdom',
+  'VAT GB143188122',
+];
