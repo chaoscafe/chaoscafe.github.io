@@ -1,0 +1,4 @@
+.DS_Store
+# Claude Design export: local reference only, never mirrored to GitHub
+design/
+*.zip
