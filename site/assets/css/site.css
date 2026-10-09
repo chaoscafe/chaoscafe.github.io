@@ -167,3 +167,203 @@ a:hover { color: var(--link-hover); }
   font-size: var(--text-lg);
   line-height: 1.5;
 }
+
+/* ----- Layout -------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--max-content) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 20;
+  padding: var(--space-2) var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-2);
+}
+
+.skip-link:focus { top: var(--space-2); }
+
+/* ----- Header -------------------------------------------------- */
+
+.site-header {
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-height: 721px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    background: var(--header-bg);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(140%);
+  }
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 64px;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.wordmark:hover { color: var(--fg); }
+
+.cc-accent-c { color: var(--accent); }
+
+.header-cta {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* ----- Buttons ------------------------------------------------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: var(--primary-fg);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-1);
+  transition:
+    box-shadow var(--dur-micro) var(--ease),
+    transform var(--dur-micro) var(--ease);
+}
+
+.button:hover {
+  color: var(--primary-fg);
+  box-shadow: var(--shadow-2);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  box-shadow: var(--shadow-1);
+  transform: translateY(1px);
+}
+
+/* ----- Sections ------------------------------------------------ */
+
+main > section { padding-block: var(--space-8); }
+
+main > section > h2 { margin-bottom: var(--space-6); }
+
+.hero {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+  padding-block: var(--space-8) var(--space-9);
+}
+
+.hero-text > * + * { margin-top: var(--space-5); }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+}
+
+.hero-art {
+  display: none;
+  border-radius: var(--radius-lg);
+}
+
+.cards {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+}
+
+.card h3 { margin-bottom: var(--space-3); }
+
+@media (min-width: 900px) {
+  .hero { grid-template-columns: 3fr 2fr; }
+  .hero-art { display: block; }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.contact .button { margin-top: var(--space-6); }
+
+.contact-email { margin-top: var(--space-5); }
+
+.profiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ----- Footer -------------------------------------------------- */
+
+.site-footer {
+  padding-block: var(--space-7);
+  border-top: 1px solid var(--border);
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+
+.site-footer p { max-width: none; }
+
+.legal { overflow-wrap: anywhere; }
+
+.colophon { margin-top: var(--space-3); }
+
+/* ----- Motion -------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .button:hover, .button:active { transform: none; }
+}
