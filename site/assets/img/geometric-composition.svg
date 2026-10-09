@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" fill="#F4EFE6"/>
+  <path d="M 0 400 A 200 200 0 0 1 400 400 Z" fill="#B5C4B2"/>
+  <circle cx="450" cy="150" r="140" fill="#2B3A67"/>
+  <circle cx="410" cy="120" r="40" fill="#F4EFE6"/>
+  <line x1="0" y1="240" x2="600" y2="240" stroke="#1A1814" stroke-width="1.5"/>
+  <circle cx="200" cy="240" r="8" fill="#D2691E"/>
+  <text x="540" y="370" font-family="Crimson Pro, Georgia, serif" font-size="44" font-weight="500" fill="#2B3A67">λ</text>
+</svg>

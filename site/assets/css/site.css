@@ -3,6 +3,40 @@
    only the tokens this page uses are defined here. Semantic colours must stay
    #rrggbb literals: test/unit/tokens.test.mjs reads them to check contrast. */
 
+/* ----- Fonts (self-hosted, Latin subset, from Fontsource 5.3.0) ---- */
+
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("../fonts/crimson-pro-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("../fonts/crimson-pro-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Tight";
+  src: url("../fonts/inter-tight-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Tight";
+  src: url("../fonts/inter-tight-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ----- Tokens -------------------------------------------------- */
 
 :root {
