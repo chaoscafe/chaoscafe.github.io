@@ -1,0 +1,135 @@
+/* ChaosCafe — site styles.
+   Token values come from the ChaosCafe design system (Claude Design export);
+   only the tokens this page uses are defined here. Semantic colours must stay
+   #rrggbb literals: test/unit/tokens.test.mjs reads them to check contrast. */
+
+/* ----- Tokens -------------------------------------------------- */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: #F4EFE6;
+  --surface: #FBF8F2;
+  --fg: #1A1814;
+  --fg-muted: #5A4836;
+  --link: #2B3A67;
+  --link-hover: #934414;
+  --primary: #2B3A67;
+  --primary-fg: #FBF8F2;
+  --accent: #D2691E;
+  --selection: #F4DBC1;
+  --border: rgba(132, 106, 80, 0.18);
+  --header-bg: rgba(244, 239, 230, 0.78);
+
+  --font-display: "Crimson Pro", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --text-sm: 14px;
+  --text-base: 17px;
+  --text-lg: 22px;
+  --text-2xl: 36px;
+  --text-4xl: 64px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-1: 0 1px 2px rgba(26, 24, 20, 0.04), 0 1px 1px rgba(26, 24, 20, 0.03);
+  --shadow-2: 0 4px 12px rgba(26, 24, 20, 0.06), 0 2px 4px rgba(26, 24, 20, 0.04);
+
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-micro: 120ms;
+
+  --max-prose: 680px;
+  --max-content: 1100px;
+  --gutter: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131A2E;
+    --surface: #1B2441;
+    --fg: #FBF8F2;
+    --fg-muted: #A9B2CB;
+    --link: #EAB78A;
+    --link-hover: #F4DBC1;
+    --primary: #FBF8F2;
+    --primary-fg: #1B2441;
+    --selection: #4F6391;
+    --border: rgba(214, 218, 232, 0.14);
+    --header-bg: rgba(19, 26, 46, 0.78);
+  }
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: 32px; }
+}
+
+/* ----- Base ---------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(var(--text-2xl), 6vw, var(--text-4xl)); line-height: 1.15; }
+h2 { font-size: var(--text-2xl); line-height: 1.3; }
+h3 { font-size: var(--text-lg); line-height: 1.3; }
+
+p { margin: 0; max-width: var(--max-prose); text-wrap: pretty; }
+p + p { margin-top: var(--space-4); }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--dur-micro) var(--ease);
+}
+
+a:hover { color: var(--link-hover); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--selection); color: var(--fg); }
+
+.lead {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
