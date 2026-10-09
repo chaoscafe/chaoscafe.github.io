@@ -9,7 +9,7 @@ Design spec: `docs/superpowers/specs/2026-10-09-chaoscafe-website-design.md`.
 
 - Copy lives in `site/index.html`; styles in `site/assets/css/site.css`.
 - Open placeholders: `grep -rn 'TODO(' site/`
-  - `TODO(booking)` — replace the LinkedIn fallback in every `data-cta="book"` link.
+  - `TODO(booking)` — replace the LinkedIn fallback in every `data-cta="book"` link (in `index.html` and `404.html`).
   - `TODO(bluesky)` — uncomment the Bluesky link and set the handle.
   - `TODO(email)` — uncomment the email paragraph and set the address.
 - The design-system export (`design/`) is a local reference only and is gitignored.

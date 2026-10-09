@@ -18,3 +18,8 @@ test('404 footer carries the statutory company details', () => {
   const footer = html.slice(html.indexOf('<footer'));
   for (const s of STATUTORY) assert.ok(footer.includes(s), `footer is missing "${s}"`);
 });
+
+test('404 header offers the book-a-call link, like the home page', () => {
+  const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'));
+  assert.match(header, /<a class="header-cta" data-cta="book" href="https:\/\/\S+">Book a call<\/a>/);
+});
