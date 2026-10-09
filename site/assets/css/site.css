@@ -357,6 +357,12 @@ main > section > h2 { margin-bottom: var(--space-6); }
 
 .colophon { margin-top: var(--space-3); }
 
+/* ----- 404 ----------------------------------------------------- */
+
+.notfound { padding-block: var(--space-9); }
+
+.notfound > * + * { margin-top: var(--space-5); }
+
 /* ----- Motion -------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
