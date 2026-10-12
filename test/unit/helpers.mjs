@@ -60,3 +60,5 @@ export const STATUTORY = [
   'Registered office: Devonshire House, 582 Honeypot Lane, Stanmore, Middlesex, HA7 1JS, United Kingdom',
   'VAT GB143188122',
 ];
+
+export const TRADING = 'Riccardo Cambiassi trades through ChaosCafe Ltd';

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { read, stripComments, attrValues, LINKEDIN, STATUTORY } from './helpers.mjs';
+import { read, stripComments, attrValues, LINKEDIN, STATUTORY, TRADING } from './helpers.mjs';
 
 const raw = read('index.html');
 const html = stripComments(raw);
@@ -60,4 +60,29 @@ test('head metadata is complete', () => {
   assert.ok(meta('property', 'og:title'), 'missing og:title');
   assert.ok(meta('property', 'og:description'), 'missing og:description');
   assert.equal(meta('name', 'twitter:card'), 'summary_large_image');
+});
+
+const section = (cls) => html.slice(html.indexOf(`<section class="${cls}`), html.indexOf('</section>', html.indexOf(`<section class="${cls}`)));
+
+test('presents Riccardo first: the h1 is his name and the title leads with it', () => {
+  assert.match(html, /<h1 id="hero-title">Riccardo Cambiassi\.<\/h1>/);
+  assert.match(html, /<title>Riccardo Cambiassi\b/);
+  assert.match(section('hero'), /trading as ChaosCafe Ltd/);
+});
+
+test('footer opens with the trading line', () => {
+  const legal = html.match(/<p class="legal">([^<]*)<\/p>/)?.[1] ?? '';
+  assert.ok(legal.startsWith(TRADING), `legal line starts "${legal.slice(0, 50)}"`);
+});
+
+test('does not mention Clojure', () => {
+  assert.doesNotMatch(html, /clojure/i);
+});
+
+test('third practice card is "Simple, not easy."', () => {
+  assert.match(section('practice'), /<h3>Simple, not easy\.<\/h3>/);
+});
+
+test('about keeps the interactive-experiences background', () => {
+  assert.match(section('about'), /interactive/);
 });

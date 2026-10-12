@@ -6,7 +6,7 @@
 
 ## Goal
 
-A single-page "business card" website for **ChaosCafe Ltd** at `https://chaoscafe.co.uk`: a credible presence for Riccardo Cambiassi's fractional CTO and consulting work, with an obvious way to book a call, links to his profiles and to 100Starlings, and the statutory company details a UK Ltd must display.
+A single-page "business card" website at `https://chaoscafe.co.uk` that presents **Riccardo Cambiassi** as the professional, trading as **ChaosCafe Ltd** (the brand): a credible presence for his fractional CTO and consulting work, with an obvious way to book a call, links to his profiles and to 100Starlings, and the statutory company details a UK Ltd must display.
 
 ### Success criteria
 
@@ -31,7 +31,7 @@ The Claude Design export (`design/claude-design-export/`, local only — gitigno
 - **Colour:** Bone `#F4EFE6` page, Indigo `#2B3A67` primary, Orange `#D2691E` accent used sparingly, Ink `#1A1814` text, Clay/Sage supporting tones. Dark mode is deep indigo, following `prefers-color-scheme`.
 - **Type:** Crimson Pro (display), Inter Tight (body/UI), JetBrains Mono (mono). Body 17px / 1.6.
 - **Rules:** 8pt spacing scale, radii 6/12/24/999, three shadows, flat surfaces (no gradients, grain, inner shadows), orange 2px focus ring, motion easing `cubic-bezier(0.32, 0.72, 0, 1)`, reduced-motion respected, prose max 680px, content max 1100px.
-- **Voice:** first person singular, dry, literary, long sentences with em-dash asides, sentence case, no emoji, at most one exclamation mark per page.
+- **Voice:** first person singular, dry. Headings and the hero are short and direct, often a statement ending in a full stop; body text (cards, About, contact) can run longer and more literary. Sentence case, no emoji, at most one exclamation mark per page. Avoid contrast-flip constructions ("not X; Y", "X rather than Y") — they read as machine-written. (Revised 2026-10-12, after richholman.com / dgw.ltd as inspiration.)
 - **Wordmark:** plain text `Chaos<span class="cc-accent-c">C</span>afe`, second C in orange.
 - **Imagery:** `assets/geometric-composition.svg` (abstract flat shapes).
 
@@ -58,14 +58,14 @@ The export's code is reference only; the site is written fresh.
 One scrolling page, in order:
 
 1. **Header** — text wordmark left, a small "Book a call" link right. No other navigation. Fixed (with the design system's backdrop blur) only on viewports taller than 720px.
-2. **Hero** — large Crimson Pro headline plus a short lead paragraph in house voice: who Riccardo is and what he does. A "Book a call →" primary button and a small "available for new work" line with the orange status dot. The geometric composition sits alongside on wide viewports and is hidden on narrow ones.
+2. **Hero** — a small "London · trading as ChaosCafe Ltd" overline, Riccardo's name as the h1, the tagline "I sit with complex systems until they explain themselves.", and a one-line lead: fractional CTO and software consultant, decisions you won't regret, systems simple enough to change. A "Book a call →" primary button and a small "available for new work" line with the orange status dot. The geometric composition sits alongside on wide viewports and is hidden on narrow ones.
 3. **Practice** — three cards:
    - *Fractional CTO* — ongoing technical leadership for companies that need a CTO's judgement without a full-time one.
    - *Architecture and platform engineering* — system design, platform foundations, getting complex systems back under control.
-   - *Clojure and interactive experiences* — hands-on build work where the problem is unusual.
-4. **About** — one short paragraph: years in small and mid-sized agencies, experience running companies, co-founding the 100Starlings software cooperative in 2015 (boutique, loosely joined, fully distributed across four countries in Europe and South America), and how ChaosCafe relates to it. Links to 100starlings.com.
-5. **Contact** — a short closing invitation in house voice, the "Book a call" button, the optional email link, and profile links (LinkedIn, GitHub, Bluesky).
-6. **Footer** — "ChaosCafe Ltd · Registered in England and Wales · Company no. 08162326 · Registered office: Devonshire House, 582 Honeypot Lane, Stanmore, Middlesex, HA7 1JS · VAT GB143188122", then "© 2026 ChaosCafe Ltd" and the λ sign-off.
+   - *Simple, not easy.* — taking accidental complexity out of systems (a nod to Rich Hickey's *Simple Made Easy*; attribution/link may follow). Clojure is deliberately not named anywhere on the site.
+4. **About** — a few short paragraphs: years in small and mid-sized agencies (much of it interactive work: installations, live events), experience running companies, co-founding the 100Starlings software cooperative in 2015 (boutique, loosely joined, fully distributed across four countries in Europe and South America), and how ChaosCafe relates to it. Links to 100starlings.com. Ends with where the name comes from (chaos engineering) and how the work now goes towards smaller systems.
+5. **Contact** — headed "Something you're worried about? Let's talk.", a short closing invitation in house voice, the "Book a call" button, the optional email link, and profile links (LinkedIn, GitHub, Bluesky).
+6. **Footer** — "Riccardo Cambiassi trades through ChaosCafe Ltd · Registered in England and Wales · Company no. 08162326 · Registered office: Devonshire House, 582 Honeypot Lane, Stanmore, Middlesex, HA7 1JS · VAT GB143188122", then "© 2026 ChaosCafe Ltd" and the λ sign-off.
 
 **Head metadata:** `<title>`, meta description, canonical URL, Open Graph and Twitter card tags with a 1200×630 share image derived from the geometric composition, favicon (SVG orange "C" with a PNG fallback and `apple-touch-icon`), `theme-color` for both schemes.
 

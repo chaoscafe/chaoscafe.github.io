@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { read, stripComments, STATUTORY } from './helpers.mjs';
+import { read, stripComments, STATUTORY, TRADING } from './helpers.mjs';
 
 const html = stripComments(read('404.html'));
 
@@ -22,4 +22,13 @@ test('404 footer carries the statutory company details', () => {
 test('404 header offers the book-a-call link, like the home page', () => {
   const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'));
   assert.match(header, /<a class="header-cta" data-cta="book" href="https:\/\/\S+">Book a call<\/a>/);
+});
+
+test('404 footer opens with the trading line', () => {
+  const legal = html.match(/<p class="legal">([^<]*)<\/p>/)?.[1] ?? '';
+  assert.ok(legal.startsWith(TRADING), `legal line starts "${legal.slice(0, 50)}"`);
+});
+
+test('404 does not mention Clojure', () => {
+  assert.doesNotMatch(html, /clojure/i);
 });
