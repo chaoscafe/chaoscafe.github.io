@@ -114,7 +114,7 @@ Every unresolved item is marked with an HTML comment of the form `<!-- TODO(<key
 ### Pipeline
 
 1. **Source of truth:** Gitea `ChaosCafe/website`.
-2. **Push mirror:** Gitea push-mirrors to GitHub `chaoscafe/website` (public) using a fine-grained GitHub token scoped to that repository only (contents: read/write). Nobody pushes to GitHub directly.
+2. **Push mirror:** Gitea push-mirrors to GitHub `chaoscafe/chaoscafe.github.io` (public; the organisation's Pages site, reused from the 2012 `chaoscafe.github.com` repo and renamed) using a fine-grained GitHub token scoped to that repository only (contents and workflows: read/write). Nobody pushes to GitHub directly, apart from a one-off bootstrap push of `main`. Reusing the organisation site means the page is served at `/` and future project repos (e.g. a blog) appear at `chaoscafe.co.uk/<repo>/`.
 3. **GitHub Actions** — `.github/workflows/pages.yml`:
    - Trigger: push (any branch) and manual dispatch.
    - `check` job: `html-validate` on `site/**/*.html`; `lychee` link check on `site/` (internal and external; LinkedIn excluded because it blocks automated checkers). Any failure fails the run.
@@ -125,17 +125,17 @@ Every unresolved item is marked with an HTML comment of the form `<!-- TODO(<key
 
 Done once, in this order (account actions by Riccardo unless he asks Claude to do the GitHub side with `gh`):
 
-1. Create `chaoscafe/website` on GitHub, configure the Gitea push mirror, set Pages source to "GitHub Actions", confirm the first deploy at `https://chaoscafe.github.io/website/`.
-2. Remove the custom domain from `chaoscafe/chaoscafe.github.com` and archive that repository.
+1. Tag the old placeholder's `master` into Gitea as `legacy-2012`; rename `chaoscafe/chaoscafe.github.com` to `chaoscafe.github.io`; set Pages source to "GitHub Actions".
+2. Bootstrap-push `main`, make it the default branch, delete `master`, configure the Gitea push mirror, and confirm the first deploy.
 3. Verify `chaoscafe.co.uk` in the `chaoscafe` organisation's Pages settings (TXT record) to prevent domain takeover.
-4. Set `chaoscafe.co.uk` as the custom domain on `chaoscafe/website`.
+4. Confirm `chaoscafe.co.uk` is still the custom domain on `chaoscafe/chaoscafe.github.io` (it carries over from the old site).
 5. DNS at the registrar:
    - Apex A records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (replacing the legacy `192.30.252.153`).
    - Apex AAAA records: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.
    - `www` CNAME → `chaoscafe.github.io`.
 6. When GitHub has provisioned the certificate, enable **Enforce HTTPS**.
 
-A few minutes of downtime between steps 2 and 5 are acceptable (the current site is a 2013 placeholder).
+The placeholder is replaced (over plain HTTP) as soon as step 2 deploys; HTTPS follows the DNS change. This is acceptable (the current site is a 2013 placeholder).
 
 ## Verification
 

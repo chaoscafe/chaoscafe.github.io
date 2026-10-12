@@ -26,13 +26,18 @@ npm run serve      # http://127.0.0.1:4173
 ## Deploying
 
 Gitea (`ChaosCafe/website`) is the source of truth. It push-mirrors to GitHub
-`chaoscafe/website`, where `.github/workflows/pages.yml` runs the checks on every
+`chaoscafe/chaoscafe.github.io` (the organisation's Pages site), where `.github/workflows/pages.yml` runs the checks on every
 branch and deploys `site/` to GitHub Pages from `main`. Push to Gitea; never to GitHub.
 
 ## Domain
 
 `chaoscafe.co.uk` is set as the custom domain in the GitHub repo's Pages settings
 (there is no `CNAME` file) and verified in the `chaoscafe` organisation.
+Because this is the organisation site, any other `chaoscafe` repo with Pages enabled
+(e.g. a future `blog`) is served at `chaoscafe.co.uk/<repo>/`.
+
+The pre-2026 placeholder site that used to live in that repo is kept in Gitea as
+the tag `legacy-2012`.
 
 | Record | Name | Value |
 |---|---|---|

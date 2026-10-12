@@ -33,7 +33,7 @@ for (const page of PAGES) {
   });
 }
 
-test('index.html uses only relative paths (works under /website/ before cut-over)', () => {
+test('index.html uses only relative paths (portable to any base path)', () => {
   for (const url of localRefs(stripComments(read('index.html')))) {
     assert.ok(!url.startsWith('/'), `root-absolute path in index.html: ${url}`);
   }
